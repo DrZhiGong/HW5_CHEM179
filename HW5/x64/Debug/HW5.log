@@ -1,0 +1,13 @@
+﻿  CNDO.cpp
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(80,13): warning C4244: “初始化”: 从“arma::uword”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(167,61): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(295,19): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(314,26): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(315,26): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(316,26): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(317,26): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(318,26): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(362,61): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(452,23): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+C:\Myarmadillo\Homework5April\HW5\CNDO.cpp(453,23): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  HW5.vcxproj -> C:\Myarmadillo\Homework5April\HW5\x64\Debug\HW5.exe
