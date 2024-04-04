@@ -18,10 +18,7 @@
     <ClCompile Include="Testmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="AO.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CNDO.cpp">
+    <ClCompile Include="molecule.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="utils.cpp">
@@ -29,10 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AO.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CNDO.h">
+    <ClInclude Include="molecule.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">

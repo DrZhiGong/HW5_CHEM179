@@ -134,14 +134,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AO.cpp" />
-    <ClCompile Include="CNDO.cpp" />
+    <ClCompile Include="molecule.cpp" />
     <ClCompile Include="Testmain.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AO.h" />
-    <ClInclude Include="CNDO.h" />
+    <ClInclude Include="molecule.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,50 +1,49 @@
-
-#include <iostream>
-#include <armadillo>
-#include "AO.h"
+#include "molecule.h"
 #include "utils.h"
-#include "CNDO.h"
-
+#include <iostream>
 
 using namespace std;
 
-
 int main() {
+    string filename = "H2.txt";
+    Molecule mol(filename);
 
-    AO inputfile_ao("H2.txt");
+    double convergence = 1e-6;
+    int maxIterations = 100;
+    int situation = 0;
+    mol.runSCF(convergence, maxIterations,situation);
 
-    // cout << "Overlap Matrix for H2: " << endl;
-    vector<BasisFunction> basis_set = inputfile_ao.basis_set;
+    cout << "Suv_RA (A is the center of u)" << endl;
+    print_field(mol.overlapMatrix_derivative());
 
-    map<int, BasisFunction> basis_map;
-    for (int i = 0; i < basis_set.size(); i++) {
-        if (basis_set[i].AO_type.find("s") != std::string::npos) {
-            basis_map[basis_set[i].atom_index] = basis_set[i];
-        }
-    }
+    cout << "Gamma_AB_RA;" << endl;
+    cout << mol.calcGammaDerivativeMatrix() << endl;
 
-    arma::mat S = overlap_matrix(basis_set);
-    // S.print();
+    cout << "gradient (Nuclear part)" << endl;
+    cout << mol.calcGradientRepulsionEnergy() << endl;
 
-    // create a CNDO instance
-    CNDO CNDO_input;
+    cout << "gradient (Electron part)" << endl;
+    cout << mol.calcFinalGradient() - (mol.calcGradientRepulsionEnergy()) << endl;
 
+    cout << "gradient" << endl;
+    cout << mol.calcFinalGradient() << endl;
 
-    CNDO_input.updateDensityMatrix(inputfile_ao, "totalDensity");
-    arma::mat S_deriv = overlapMatrix_derivative(basis_set);
+    printf("\nIf I use finite difference, change the x coordinate of second atom:\n");
+    
+    cout << "The molecule in the input file(Situation I)" << filename << endl;
+;
+    mol.runSCF(convergence, maxIterations,1);
+    //Number is multiplied with 1e-6 to change the x coordinates, if you wanna change the y coordinates,
+    //just to change the atomlist[0 to 1].coord.
+    //    atomList[1].coords(0) = atomList[1].coords(0) + situation * 1e-6;
 
-    // Print the combined matrix
+    cout << "The molecule in the input file(Situation II)" << filename << endl;
+    mol.runSCF(convergence, maxIterations,-1);
 
-    cout << "Suv_RA" << endl;
-    S_deriv.print();
-
-    // cout << "Gamma_RA" << endl;
-    // arma::field<arma::vec> gamma_deriv = CNDO_input.createGammaDerivativeMat(basis_map);
-    // printField(gamma_deriv);
-
-
-
-
+    cout << "The molecule in the input file(Situation III)" << filename<<endl;
+    mol.runSCF(convergence, maxIterations,0);
+    cout << "The molecule has the gradiant like this:" << endl;
+    cout << mol.calcFinalGradient() << endl;
 
     return 0;
 }
